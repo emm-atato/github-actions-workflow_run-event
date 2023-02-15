@@ -1,9 +1,19 @@
 ---
-name: Preflight
+name: ci
 
 on:
-  - pull_request
-  - push
+  push:
+    branches:
+      - main
+      - develop
+      - 'releases/**'
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+-pre'
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - main
+      - develop
 
 jobs:
   preflight-job:

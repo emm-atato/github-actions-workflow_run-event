@@ -4,7 +4,9 @@ name: Test
 on:
   workflow_run:
     workflows:
-      - Preflight
+      - ci
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+-pre'
     types:
       - completed
 
